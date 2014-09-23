@@ -10,7 +10,7 @@
 (defun cider-set-ns-and-eval-buffer ()
   (when (member 'cider-mode (get-active-minor-mode-list))
     (cider-repl-set-ns (cider-current-ns))
-    (if (not (equal "user" (cider-current-ns)))
+    (if (not (equal "project.clj" (file-name-nondirectory buffer-file-name)))
         (cider-load-current-buffer))))
 
 (add-hook 'after-save-hook 'cider-set-ns-and-eval-buffer)
