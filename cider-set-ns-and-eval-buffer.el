@@ -11,7 +11,8 @@
   (when (member 'cider-mode (get-active-minor-mode-list))
     (cider-repl-set-ns (cider-current-ns))
     (if (not (equal "project.clj" (file-name-nondirectory buffer-file-name)))
-        (cider-load-current-buffer))))
+        (cider-load-buffer (current-buffer)))))
 
-(add-hook 'after-save-hook 'cider-set-ns-and-eval-buffer)
-(add-hook 'window-configuration-change-hook 'cider-set-ns-and-eval-buffer) 
+;(add-hook 'after-save-hook 'cider-set-ns-and-eval-buffer)
+;(add-hook 'window-configuration-change-hook 'cider-set-ns-and-eval-buffer)
+
