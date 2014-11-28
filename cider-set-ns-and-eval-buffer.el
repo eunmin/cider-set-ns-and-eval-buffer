@@ -8,11 +8,16 @@
     active-modes))
 
 (defun cider-set-ns-and-eval-buffer ()
+  (interactive)
   (when (member 'cider-mode (get-active-minor-mode-list))
     (cider-repl-set-ns (cider-current-ns))
     (if (not (equal "project.clj" (file-name-nondirectory buffer-file-name)))
         (cider-load-buffer (current-buffer)))))
 
-;(add-hook 'after-save-hook 'cider-set-ns-and-eval-buffer)
+(add-hook 'after-save-hook 'cider-set-ns-and-eval-buffer)
 ;(add-hook 'window-configuration-change-hook 'cider-set-ns-and-eval-buffer)
+
+(provide 'cider-set-ns-and-eval-buffer)
+;;; cider-set-ns-and-eval-buffer.el ends here
+
 
